@@ -8,13 +8,16 @@ public class GameManager : MonoBehaviour
 {
     static GameManager instance;
     public float score = 0;
+    public float timeCounter = 0;
     public Text playerName;
     public Text playerScore;
+    public Text timer;
     // Start is called before the first frame update
     void Start()
     {
         playerName = GameObject.Find("playerName").GetComponent<Text>();
         playerScore = GameObject.Find("playerScore").GetComponent<Text>();
+        timer = GameObject.Find("timer").GetComponent<Text>();
 
         NoDestroyMethod();
     }
@@ -39,5 +42,11 @@ public class GameManager : MonoBehaviour
     {
         score += value;
         playerScore.text = "Score : " + score.ToString();
+    }
+
+    public void AddTime(float value)
+    {
+        timeCounter += value;
+        timer.text = timeCounter.ToString();
     }
 }
