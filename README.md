@@ -3,21 +3,22 @@ Ride 4 Life
 
 Hello, world! This is My GD50 Final Project Submission.
 
-It is an Adaptation of the first game arisu played in popular Netflix series show : Alice in Borderland
+It is a driving game where you pick money while avoiding meteor shower, 
+Get enough money to escape the city before the time runs out
 
 Features
 --------
 
-- Choose a door from the life or death door
-- beat my high score and share with me on social media
+- Drive
+- beat high scores and share with me on social media
 - Just have fun
 
 Installation
 ------------
 
-Install unity:
+    Install unity:
 
-    git clone repo
+    git clone https://github.com/officialyenum/Ride4Life.git
     open folder in unity 
     update to whatever unity verison you are using
     install or update all missing Library from asset store
