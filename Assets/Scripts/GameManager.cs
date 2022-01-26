@@ -8,18 +8,22 @@ public class GameManager : MonoBehaviour
 {
     static GameManager instance;
     public float score = 0;
-    public float timeCounter = 0;
-    public Text playerName;
+    public float timeCounter = 100;
+    static public Text playerName;
     public Text playerScore;
     public Text timer;
+
+    public void Awake() {
+        playerName = GameObject.Find("playerName").GetComponent<Text>();
+        playerName.text = StartGame.startGame.playerName;
+        playerScore = GameObject.Find("playerScore").GetComponent<Text>();
+        timer = GameObject.Find("timer").GetComponent<Text>();
+        NoDestroyMethod();
+    }
     // Start is called before the first frame update
     void Start()
     {
-        playerName = GameObject.Find("playerName").GetComponent<Text>();
-        playerScore = GameObject.Find("playerScore").GetComponent<Text>();
-        timer = GameObject.Find("timer").GetComponent<Text>();
-
-        NoDestroyMethod();
+        
     }
 
     // Update is called once per frame
@@ -49,4 +53,11 @@ public class GameManager : MonoBehaviour
         timeCounter += value;
         timer.text = timeCounter.ToString();
     }
+
+    public void GoToTitle () {
+        Debug.Log ("You Clicked Title Button");
+        SceneManager.LoadScene("Title");
+        
+    }
+
 }

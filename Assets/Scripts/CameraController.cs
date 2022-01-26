@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     public GameObject child;
     private float horizontalInput;
     private float speed = 1;
+    
     private void Awake() {
         player = GameObject.FindGameObjectWithTag("Player");
         child = player.transform.Find("camera constraint").gameObject;
