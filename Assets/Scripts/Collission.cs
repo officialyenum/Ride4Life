@@ -7,10 +7,12 @@ public class Collission : MonoBehaviour
     public ParticleSystem explosionParticle;
     public ParticleSystem flameParticle;
     private PlayerController playerControllerScript;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         explosionParticle.Stop();
         flameParticle.Play();
     }
@@ -42,7 +44,7 @@ public class Collission : MonoBehaviour
         playerControllerScript.playerAudio.clip = playerControllerScript.crashSound;
         playerControllerScript.playerAudio.volume = 0.9f;
         playerControllerScript.playerAudio.Play();
-        playerControllerScript.gameOver = true;
+        gameManager.gameOver = true;
     }
 
     IEnumerator DestroyDelayed()

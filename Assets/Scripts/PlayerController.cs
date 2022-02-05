@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,13 +13,20 @@ public class PlayerController : MonoBehaviour
     public AudioClip driveSound;
     public AudioClip crashSound;
     public AudioClip pickupSound;
-    public bool gameOver = false;
-    public float score = 0;
+    public Text playerName;
+    public Text playerScore;
+    public Text timerLeft;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         playerAudio = GetComponent<AudioSource>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        playerName.text = gameManager.username;
+        playerScore.text = "" + gameManager.score;
+        timerLeft.text = "00:" + gameManager.timeCounter;
+        Debug.Log(gameManager.gameOver);
     }
 
     // Update is called once per frame
@@ -26,7 +34,8 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
-        if(gameOver == false) {
+        if (gameManager.gameOver == false)
+        {
             // move vehicle forward
             transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
             // turn vehicle
@@ -48,6 +57,15 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(FadeAudioSource.StartFade(playerAudio, 0.005f, 0.2f));
         }
     }
+
+
+    public void AddScore(float value)
+    {
+        gameManager.score += value;
+        playerScore.text = "" + gameManager.score;
+    }
+
+    
 
     
 }

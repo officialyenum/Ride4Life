@@ -7,6 +7,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] obstaclePrefabs;
     private float startDelay = 2;
     private float repeatRate = 1.5f;
+    private GameManager gameManager;
     private PlayerController playerController;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnObstacles", startDelay, repeatRate);
         //instantiate a game Object Script file
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -29,21 +31,28 @@ public class SpawnManager : MonoBehaviour
         Vector3 startPos = playerController.transform.position;
 
         //if game Over in Player Controller script is false spawn Obstacle else do nothing
-        if (playerController.gameOver == false)
+        if (gameManager.gameOver == false)
         {
             int index = Random.Range(0, obstaclePrefabs.Length);
             if (index == 2)
             {
-                Vector3 spawnPos = new Vector3(Random.Range(250, -250), 0f, Random.Range(75, -25));
+                Vector3 spawnPos = new Vector3(Random.Range(startPos.x + 100, startPos.x - 100), 0f, Random.Range(startPos.z + 100, startPos.z- 100));
                 //instantiate a prefab, assign position and set its rotation
                 Instantiate(obstaclePrefabs[index], spawnPos, obstaclePrefabs[index].transform.rotation);
+                Debug.Log("Player X Position"+startPos.x);
+                Debug.Log("Player Y Position"+startPos.y);
+                Debug.Log("Spawn X Position"+spawnPos.x);
+                Debug.Log("Spawn Y Position"+spawnPos.y);
                 
             }else
             {
-                Vector3 spawnPos = new Vector3(Random.Range(450, -450), 500f, Random.Range(90, -50));
+                Vector3 spawnPos = new Vector3(Random.Range(startPos.x + 60, startPos.x - 60), 100f,  Random.Range(startPos.z + 60, startPos.z- 60));
                 //instantiate a prefab, assign position and set its rotation
                 Instantiate(obstaclePrefabs[index], spawnPos, obstaclePrefabs[index].transform.rotation);
-                
+                Debug.Log("Player X Position"+startPos.x);
+                Debug.Log("Player Y Position"+startPos.y);
+                Debug.Log("Spawn X Position"+spawnPos.x);
+                Debug.Log("Spawn Y Position"+spawnPos.y);
             }
         }
     }

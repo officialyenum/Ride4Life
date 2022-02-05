@@ -7,29 +7,31 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     static GameManager instance;
-    public float score = 0;
-    public float timeCounter = 100;
-    static public Text playerName;
-    public Text playerScore;
-    public Text timer;
+    public float score = 0f;
+    public string username = "Yenum";
+    public int timeCounter = 60;
+    public bool gameOver = false;
+    public bool takingAway = false;
 
     public void Awake() {
-        playerName = GameObject.Find("playerName").GetComponent<Text>();
-        playerName.text = StartGame.startGame.playerName;
-        playerScore = GameObject.Find("playerScore").GetComponent<Text>();
-        timer = GameObject.Find("timer").GetComponent<Text>();
         NoDestroyMethod();
     }
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameOver == true)
+        {
+            StartCoroutine(GoToHighScore());
+        }
+        if (score >= 100 || timeCounter <= 0f)
+        {
+            gameOver = true;
+        }
     }
 
     public void NoDestroyMethod()
@@ -42,22 +44,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddScore(float value)
+
+    public void AddName(string value)
     {
-        score += value;
-        playerScore.text = "Score : " + score.ToString();
+        username = ""+value;
     }
 
-    public void AddTime(float value)
-    {
-        timeCounter += value;
-        timer.text = timeCounter.ToString();
+    IEnumerator GoToHighScore () {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("HighScore");
     }
 
-    public void GoToTitle () {
-        Debug.Log ("You Clicked Title Button");
-        SceneManager.LoadScene("Title");
-        
-    }
+    
 
 }

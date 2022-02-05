@@ -5,26 +5,19 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour {
-    public static StartGame startGame;
     public Button startButton;
     public InputField nameInput;
     public string playerName;
     public string errorMessage;
     public Text errorMessageText;
+    private GameManager gameManager;
 
     private void Awake() 
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         errorMessageText = GameObject.Find("error").GetComponent<Text>();
         startButton.onClick.AddListener(GoToGame);
         nameInput.onValueChanged.AddListener(delegate {readPlayerInput(); });
-        if (startGame == null)
-        {
-            startGame = this;
-            DontDestroyOnLoad(this.gameObject);
-        }else
-        {
-            Destroy(this.gameObject);
-        }
     }
     // Start is called before the first frame update
     void Start()
@@ -40,6 +33,7 @@ public class StartGame : MonoBehaviour {
     public void readPlayerInput()
     {
         Debug.Log(nameInput.text);
+        gameManager.AddName(nameInput.text);
         playerName = nameInput.text;
         Debug.Log(playerName);
     }
@@ -47,9 +41,9 @@ public class StartGame : MonoBehaviour {
     public void GoToGame () {
         Debug.Log("You Clicked Start Button");
         Debug.Log(playerName);
-        if (playerName.Length <= 5)
+        if (playerName.Length < 3 || playerName.Length > 10)
         {
-            errorMessageText.text = "Must be greater than 5 characters";
+            errorMessageText.text = "Must be greater than 3  or less than 10 characters";
         }else{
             SceneManager.LoadScene("GameScene");
             errorMessage = "";

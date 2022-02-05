@@ -18,7 +18,6 @@ public class FloorCollission : MonoBehaviour
             playerControllerScript.playerAudio.clip = playerControllerScript.pickupSound;
             playerControllerScript.playerAudio.volume = 0.9f;
             playerControllerScript.playerAudio.Play();
-            playerControllerScript.score += 1;
         }
     }
 

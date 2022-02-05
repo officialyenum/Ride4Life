@@ -27,8 +27,8 @@ public class PickMoney : MonoBehaviour
     void Pickup(){
         Debug.Log("Money Was Picked");
         playerControllerScript.playerAudio.PlayOneShot(playerControllerScript.pickupSound, 1.0f);
-        gameManager.AddScore(10);
-        Debug.Log(playerControllerScript.score);
+        playerControllerScript.AddScore(10);
+        Debug.Log(gameManager.score);
     }
 
     void turnOnEngine()
