@@ -9,7 +9,12 @@ public class EndGame : MonoBehaviour
     public Text username;
     public Text time;
     public Text dollar;
+    public Button homeButton;
     private GameManager gameManager;
+    private void Awake() 
+    {
+        homeButton.onClick.AddListener(GoToTitle);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +31,7 @@ public class EndGame : MonoBehaviour
     }
 
     public void GoToTitle () {
-        Debug.Log ("You Clicked Title Button");
-        Destroy(gameManager.gameObject);
+        Destroy(gameManager);
         SceneManager.LoadScene("Title");
     }
 

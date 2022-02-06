@@ -389,6 +389,7 @@ MonoBehaviour:
   username: {fileID: 765690964}
   time: {fileID: 1275060315}
   dollar: {fileID: 11309962}
+  homeButton: {fileID: 1657712617}
 --- !u!4 &223992467
 Transform:
   m_ObjectHideFlags: 0
@@ -748,6 +749,7 @@ MonoBehaviour:
   username: 
   timeCounter: 60
   gameOver: 0
+  gamePaused: 0
   takingAway: 0
 --- !u!4 &977958494
 Transform:
@@ -1602,19 +1604,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1657712618}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 223992466}
-        m_TargetAssemblyTypeName: EndGame, Assembly-CSharp
-        m_MethodName: GoToTitle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1657712618
 MonoBehaviour:
   m_ObjectHideFlags: 0
