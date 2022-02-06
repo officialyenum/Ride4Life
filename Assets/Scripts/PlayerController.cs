@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         playerAudio = GetComponent<AudioSource>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerName.text = gameManager.username.ToString();
-        playerScore.text = "Score:" + gameManager.score;
+        playerScore.text = "" + gameManager.score;
         rb = GetComponent<Rigidbody>();
         timerLeft.text = "00:" + gameManager.timeCounter;
         Debug.Log(gameManager.gameOver);
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     public void AddScore(float value)
     {
         gameManager.score += value;
-        playerScore.text = "Score:" + gameManager.score;
+        playerScore.text = "" + gameManager.score;
     }
 
     IEnumerator TimerTake()

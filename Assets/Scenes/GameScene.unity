@@ -654,8 +654,8 @@ MonoBehaviour:
 
     You have 60 secs
 
-    Ride 4
-    Life Champ!!!'
+    W,A & D
+    Keys to Ride 4 Life Champ!!!'
 --- !u!222 &430690980
 CanvasRenderer:
   m_ObjectHideFlags: 0
