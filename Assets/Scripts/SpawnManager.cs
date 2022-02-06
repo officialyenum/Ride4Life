@@ -34,26 +34,11 @@ public class SpawnManager : MonoBehaviour
         if (gameManager.gameOver == false)
         {
             int index = Random.Range(0, obstaclePrefabs.Length);
-            if (index == 2)
-            {
-                Vector3 spawnPos = new Vector3(Random.Range(startPos.x + 100, startPos.x - 100), 0f, Random.Range(startPos.z + 100, startPos.z- 100));
-                //instantiate a prefab, assign position and set its rotation
-                Instantiate(obstaclePrefabs[index], spawnPos, obstaclePrefabs[index].transform.rotation);
-                Debug.Log("Player X Position"+startPos.x);
-                Debug.Log("Player Y Position"+startPos.y);
-                Debug.Log("Spawn X Position"+spawnPos.x);
-                Debug.Log("Spawn Y Position"+spawnPos.y);
-                
-            }else
-            {
-                Vector3 spawnPos = new Vector3(Random.Range(startPos.x + 60, startPos.x - 60), 100f,  Random.Range(startPos.z + 60, startPos.z- 60));
-                //instantiate a prefab, assign position and set its rotation
-                Instantiate(obstaclePrefabs[index], spawnPos, obstaclePrefabs[index].transform.rotation);
-                Debug.Log("Player X Position"+startPos.x);
-                Debug.Log("Player Y Position"+startPos.y);
-                Debug.Log("Spawn X Position"+spawnPos.x);
-                Debug.Log("Spawn Y Position"+spawnPos.y);
-            }
+            
+            Vector3 spawnPos = new Vector3(Random.Range(150, 800), 200f,  Random.Range(150, 850));
+            //instantiate a prefab, assign position and set its rotation
+            Instantiate(obstaclePrefabs[index], spawnPos, obstaclePrefabs[index].transform.rotation);
+            
         }
     }
 }

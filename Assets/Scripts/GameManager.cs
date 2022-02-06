@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public string username = "Yenum";
     public int timeCounter = 60;
     public bool gameOver = false;
+    public bool gamePaused = false;
     public bool takingAway = false;
 
     public void Awake() {
@@ -31,6 +32,10 @@ public class GameManager : MonoBehaviour
         if (score >= 100 || timeCounter <= 0f)
         {
             gameOver = true;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            gamePaused = !gamePaused;
         }
     }
 

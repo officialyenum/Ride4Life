@@ -11,7 +11,7 @@ public class PickMoney : MonoBehaviour
     {
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        StartCoroutine(DestroyDelayed());
+        // StartCoroutine(DestroyDelayed());
     }
 
     void OnTriggerEnter(Collider other)

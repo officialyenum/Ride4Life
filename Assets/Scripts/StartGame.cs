@@ -10,10 +10,13 @@ public class StartGame : MonoBehaviour {
     public string playerName;
     public string errorMessage;
     public Text errorMessageText;
+    public AudioSource playerAudio;
+    public AudioClip clickSound;
     private GameManager gameManager;
 
     private void Awake() 
     {
+        playerAudio = GetComponent<AudioSource>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         errorMessageText = GameObject.Find("error").GetComponent<Text>();
         startButton.onClick.AddListener(GoToGame);
@@ -39,6 +42,7 @@ public class StartGame : MonoBehaviour {
     }
 
     public void GoToGame () {
+        playerAudio.PlayOneShot(clickSound, 1.0f);
         Debug.Log("You Clicked Start Button");
         Debug.Log(playerName);
         if (playerName.Length < 3 || playerName.Length > 10)

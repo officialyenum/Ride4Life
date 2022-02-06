@@ -27,11 +27,17 @@ public class EndGame : MonoBehaviour
 
     public void GoToTitle () {
         Debug.Log ("You Clicked Title Button");
+        Destroy(gameManager.gameObject);
         SceneManager.LoadScene("Title");
     }
 
     public void Connect() 
     {
-        Debug.Log("You Clicked Connect");
+        string time = gameManager.timeCounter.ToString();
+        string score = gameManager.score.ToString();
+        string tweet = "Hello%20%40officialyenum%20i%20just%20played%20%23ride4life%20and%20i%20scored%20"+score+"%20with%20"+time+"%20secs%20left%2C%20nice%20game%20lad";
+        string url = "https://twitter.com/intent/tweet?text=" + tweet;
+        Debug.Log(url);
+        Application.OpenURL(url);
     }
 }
