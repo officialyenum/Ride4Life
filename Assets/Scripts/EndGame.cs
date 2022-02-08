@@ -32,7 +32,6 @@ public class EndGame : MonoBehaviour
     }
 
     public void GoToTitle () {
-        Log
         SceneManager.LoadScene("Title");
         Destroy(gameManager);
     }
