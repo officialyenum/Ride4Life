@@ -14,6 +14,7 @@ public class EndGame : MonoBehaviour
     private void Awake() 
     {
         homeButton.onClick.AddListener(GoToTitle);
+        connectButton.onClick.AddListener(Connect);
     }
     // Start is called before the first frame update
     void Start()
@@ -31,8 +32,9 @@ public class EndGame : MonoBehaviour
     }
 
     public void GoToTitle () {
-        Destroy(gameManager);
+        Log
         SceneManager.LoadScene("Title");
+        Destroy(gameManager);
     }
 
     public void Connect() 

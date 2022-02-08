@@ -42,8 +42,8 @@ Future updates will include:
 
 ## Contribute
 
-- Issue Tracker: https://www.github.com/officialyenum/LifeOrDeath/issues
-- Source Code: https://www.github.com/officialyenum/LifeOrDeath
+- Issue Tracker: https://www.github.com/officialyenum/Ride4Life/issues
+- Source Code: https://www.github.com/officialyenum/Ride4Life
 
 ## Support
 

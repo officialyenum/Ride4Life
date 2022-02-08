@@ -181,7 +181,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &67408163
 Canvas:
   m_ObjectHideFlags: 0
@@ -191,7 +191,7 @@ Canvas:
   m_GameObject: {fileID: 67408160}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 1771158364}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -210,9 +210,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67408160}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.016579788, y: 0, z: 0, w: 0.99986255}
+  m_LocalPosition: {x: 0, y: 0, z: -22.804977}
+  m_LocalScale: {x: 0.11526959, y: 0.11526959, z: 0.11526959}
   m_Children:
   - {fileID: 1447929252}
   - {fileID: 125688156}
@@ -225,9 +225,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1.24, y: 18.615501}
+  m_SizeDelta: {x: 1920, y: 1001.7392}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &122925047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1934,7 +1934,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d02df787cbce7499caf54e1d67cc753c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.34
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
